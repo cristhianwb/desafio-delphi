@@ -1,0 +1,60 @@
+program QC2;
+
+uses
+  uComponente in 'uComponente.pas',
+  uFrame in 'uFrame.pas',
+  uBotao in 'uBotao.pas',
+  uMemo in 'uMemo.pas',
+  uLabel in 'uLabel.pas',
+  Dialogs,
+  SysUtils;
+
+{$R *.RES}
+var
+  Frame,F2 : TFrame;
+  Memo : TMemo;
+  Botao : TBotao;
+  aLabel : TLabel;
+begin
+  Frame := TFrame.Create(nil);
+  Frame.Largura := 600;
+  Frame.Altura := 800;
+
+  Botao := TBotao.Create(Frame);
+  Botao.Altura := 10;
+  Botao.Largura := 50;
+  Botao.X := 40;
+  Botao.Y := 30;
+
+
+  aLabel := TLabel.Create(Frame);
+  aLabel.Altura := 10;
+  aLabel.Largura := 50;
+  aLabel.X := 350;
+  aLabel.Y := 350;
+
+  F2 := TFrame.Create(Frame);
+  F2.X := 10;
+  F2.Largura := 200;
+  F2.Altura := 300;
+
+  Memo := TMemo.Create(F2);
+  Memo.Altura := 100;
+  Memo.Largura := 150;
+  Memo.X := 60;
+  Memo.Y := 30;
+
+  F2.AdicionaComponente(Memo);
+
+  Frame.AdicionaComponente(F2);
+
+  Frame.AdicionaComponente(Botao);
+  Frame.AdicionaComponente(aLabel);
+
+  Frame.Largura := 500;
+  ShowMessage('Novo Valor :' + IntToStr(F2.Largura) );
+  //Frame.X := 0;
+  ShowMessage('Novo Valor :' + IntToStr(Memo.Largura) );
+
+end.
+
